@@ -15,6 +15,7 @@ RUN apt-get update -qq \
     && conda create -n capfalcnlp python=3.7 gunicorn -y \
     \
     && mkdir -p ${homedir}/${user}/.ssh \
+    && mkdir -p ${homedir}/${user}/input-files \
     && useradd --home ${homedir}/${user} --no-create-home --shell /bin/bash --uid 2001 ${user} --no-log-init \
     && chmod 0700 ${homedir}/${user}/.ssh \
     && chown -R ${user}:${user} ${homedir}/${user} \
@@ -30,8 +31,7 @@ RUN apt-get update -qq \
     && chmod 700 /opt/ssh \
     && chmod 600 /opt/ssh/* \
     && chown -R ${user}:${user} /opt/ssh \
-    && mkdir /run/sshd \
-    && mkdir -p ${homedir}/${user}/input-files
+    && mkdir /run/sshd
 
 RUN rm -rf /run/nologin
 
