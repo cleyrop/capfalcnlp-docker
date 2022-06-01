@@ -6,3 +6,4 @@ threads = 2
 daemon = True
 chdir = "capfalcnlp"
 reload = True
+timeout = 60
